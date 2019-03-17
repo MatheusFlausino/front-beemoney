@@ -221,7 +221,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 // import { NotificationsModule } from 'projects/angular6-notifications/src/public_api';
 var AppModule = /** @class */ (function () {
     function AppModule() {
-        _assets_js_index__WEBPACK_IMPORTED_MODULE_6__["LoopBackConfig"].setBaseURL('http://127.0.0.1:3000');
+        _assets_js_index__WEBPACK_IMPORTED_MODULE_6__["LoopBackConfig"].setBaseURL('http://app.beemoney.com/api');
         _assets_js_index__WEBPACK_IMPORTED_MODULE_6__["LoopBackConfig"].setApiVersion('api');
     }
     AppModule = __decorate([
@@ -595,7 +595,7 @@ var LoopBackConfig = /** @class */ (function () {
     LoopBackConfig.getRequestOptionsCredentials = function () {
         return LoopBackConfig.withCredentials;
     };
-    LoopBackConfig.path = '//172.16.0.103:3000';
+    LoopBackConfig.path = '//0.0.0.0:3000';
     LoopBackConfig.version = 'api';
     LoopBackConfig.authPrefix = '';
     LoopBackConfig.debug = true;
