@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"heading text-center\">Charts</h2>\n\n<div class=\"row\">\n  <div class=\"col-xl-6\">\n    <h4 class=\"mt-4\">Bar Chart</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"bar-chart\" ></canvas>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-xl-6\">\n    <h4 class=\"mt-4\">Line Chart</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"line-chart\" ></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-xl-6\">\n    <h4 class=\"mt-4\">Doughnut Chart</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"doughnut-chart\"></canvas>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-xl-6\">\n    <h4 class=\"mt-4\">Mix Chart (Bar and Line)</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"mixed-chart\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-xl-6\">\n    <h4 class=\"mt-4\">Bubble Chart</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"bubble-chart\"></canvas>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-xl-6\">\n    <h4 class=\"mt-4\">Radar Chart</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"radar-chart\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n<h4 class=\"mt-4\">Example</h4>\n<div class=\"card\">\n  <div class=\"card-body\">\n    <div class=\"form-group row mb-4\">\n      <div class=\"col-sm-2\">\n        <label for=\"\">Select Type</label>\n      </div>\n      <div class=\"col-sm-4\">\n        <ng-select [items]=\"['line','horizontalBar','bar','radar','polarArea','doughnut','pie']\" (change)=\"updateChartType()\" placeholder=\"Select\"\n          [(ngModel)]=\"exampleChartType\"></ng-select>\n      </div>\n      <div class=\"col-sm-4 mt-3 mt-sm-0\">\n        <button class=\"btn btn-secondary \" (click)=\"randomizeData()\">Randomize !</button>\n      </div>\n    </div>\n    <hr>\n    <div class=\"exampleChart\">\n      <canvas id=\"exampleChart\"></canvas>\n    </div>\n  </div>\n</div>\n<p class=\"mt-4 d-block text-muted\">for more info:\n  <a href=\"https://www.chartjs.org/\">Chartjs\n    <i class=\"material-icons\" style=\"font-size: .9rem\">launch</i>\n  </a>\n</p>\n"
+module.exports = "<h2 class=\"heading text-center\">Charts</h2>\n\n<div class=\"row\">\n  <div class=\"col-12\">\n    <h4 class=\"mt-4\">Bar Chart</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"bar-chart\" ></canvas>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-12\">\n    <h4 class=\"mt-4\">Line Chart</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"line-chart\" ></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-xl-6\">\n    <h4 class=\"mt-4\">Doughnut Chart</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"doughnut-chart\"></canvas>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-xl-6\">\n    <h4 class=\"mt-4\">Mix Chart (Bar and Line)</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"mixed-chart\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-xl-6\">\n    <h4 class=\"mt-4\">Bubble Chart</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"bubble-chart\"></canvas>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-xl-6\">\n    <h4 class=\"mt-4\">Radar Chart</h4>\n    <div class=\"card\">\n      <div class=\"card-body\">\n        <canvas id=\"radar-chart\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>\n\n<h4 class=\"mt-4\">Example</h4>\n<div class=\"card\">\n  <div class=\"card-body\">\n    <div class=\"form-group row mb-4\">\n      <div class=\"col-sm-2\">\n        <label for=\"\">Select Type</label>\n      </div>\n      <div class=\"col-sm-4\">\n        <ng-select [items]=\"['line','horizontalBar','bar','radar','polarArea','doughnut','pie']\" (change)=\"updateChartType()\" placeholder=\"Select\"\n          [(ngModel)]=\"exampleChartType\"></ng-select>\n      </div>\n      <div class=\"col-sm-4 mt-3 mt-sm-0\">\n        <button class=\"btn btn-secondary \" (click)=\"randomizeData()\">Randomize !</button>\n      </div>\n    </div>\n    <hr>\n    <div class=\"exampleChart\">\n      <canvas id=\"exampleChart\"></canvas>\n    </div>\n  </div>\n</div>\n<p class=\"mt-4 d-block text-muted\">for more info:\n  <a href=\"https://www.chartjs.org/\">Chartjs\n    <i class=\"material-icons\" style=\"font-size: .9rem\">launch</i>\n  </a>\n</p>\n"
 
 /***/ }),
 
@@ -24,6 +24,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -32,10 +34,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 };
 
 
+
 var ChartsComponent = /** @class */ (function () {
     function ChartsComponent() {
         this.exampleChartType = 'line';
     }
+    // import * as moment from 'moment';
     ChartsComponent.prototype.ngOnInit = function () {
         // Bar chart
         this.barChart();
@@ -224,34 +228,36 @@ var ChartsComponent = /** @class */ (function () {
         });
     };
     ChartsComponent.prototype.lineChart = function () {
+        var startDate = moment__WEBPACK_IMPORTED_MODULE_2__().startOf('hour');
+        var dates = [];
+        var t = 84;
+        while (t--) {
+            dates.push(startDate.format('hh:mma'));
+            startDate.add(120, 'minute');
+        }
+        var values = [];
+        var value = 6;
+        var format = 'hh:mma';
+        // var time = moment() gives you current time. no format required.
+        var beforeTime = moment__WEBPACK_IMPORTED_MODULE_2__('09:00am', format), afterTime = moment__WEBPACK_IMPORTED_MODULE_2__('20:00pm', format);
+        dates.forEach(function (element) {
+            var time = moment__WEBPACK_IMPORTED_MODULE_2__(element, format);
+            if (time.isBetween(beforeTime, afterTime)) {
+                value += Math.random() / 50;
+            }
+            else {
+                value += Math.random() / 1000;
+            }
+            values.push(value);
+        });
         var line = new chart_js__WEBPACK_IMPORTED_MODULE_1__(document.getElementById('line-chart'), {
             type: 'line',
             data: {
-                labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
+                labels: dates,
                 datasets: [{
-                        data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
-                        label: 'Africa',
-                        borderColor: '#3e95cd',
-                        fill: false
-                    }, {
-                        data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, 5267],
-                        label: 'Asia',
-                        borderColor: '#8e5ea2',
-                        fill: false
-                    }, {
-                        data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
-                        label: 'Europe',
-                        borderColor: '#3cba9f',
-                        fill: false
-                    }, {
-                        data: [40, 20, 10, 16, 24, 38, 74, 167, 508, 784],
-                        label: 'Latin America',
-                        borderColor: '#e8c3b9',
-                        fill: false
-                    }, {
-                        data: [6, 3, 2, 2, 7, 26, 82, 172, 312, 433],
-                        label: 'North America',
-                        borderColor: '#c45850',
+                        data: values,
+                        label: 'Peso do melgueira',
+                        borderColor: '#fbba26',
                         fill: false
                     }
                 ]
@@ -259,7 +265,7 @@ var ChartsComponent = /** @class */ (function () {
             options: {
                 title: {
                     display: true,
-                    text: 'World population per region (in millions)'
+                    text: 'Peso da melgueira de acordo com o tempo (Últimos 7 dias)'
                 },
                 maintainAspectRatio: false,
                 responsive: true

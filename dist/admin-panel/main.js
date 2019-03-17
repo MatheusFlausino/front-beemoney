@@ -10,12 +10,14 @@
 var map = {
 	"../apiario/apiario.module": [
 		"./src/app/apiario/apiario.module.ts",
+		"apiario-apiario-module~calendar-calendar-module~charts-charts-module~dashboard-dashboard-module~invo~469a242c",
+		"apiario-apiario-module~charts-charts-module~dashboard-dashboard-module",
 		"common",
 		"apiario-apiario-module"
 	],
 	"../calendar/calendar.module": [
 		"./src/app/calendar/calendar.module.ts",
-		"calendar-calendar-module~charts-charts-module~dashboard-dashboard-module~invoice-invoice-module",
+		"apiario-apiario-module~calendar-calendar-module~charts-charts-module~dashboard-dashboard-module~invo~469a242c",
 		"calendar-calendar-module~dashboard-dashboard-module",
 		"common",
 		"calendar-calendar-module"
@@ -27,8 +29,8 @@ var map = {
 	],
 	"../charts/charts.module": [
 		"./src/app/charts/charts.module.ts",
-		"calendar-calendar-module~charts-charts-module~dashboard-dashboard-module~invoice-invoice-module",
-		"charts-charts-module~dashboard-dashboard-module",
+		"apiario-apiario-module~calendar-calendar-module~charts-charts-module~dashboard-dashboard-module~invo~469a242c",
+		"apiario-apiario-module~charts-charts-module~dashboard-dashboard-module",
 		"charts-charts-module~forms-forms-module",
 		"common",
 		"charts-charts-module"
@@ -49,7 +51,7 @@ var map = {
 	],
 	"../invoice/invoice.module": [
 		"./src/app/invoice/invoice.module.ts",
-		"calendar-calendar-module~charts-charts-module~dashboard-dashboard-module~invoice-invoice-module",
+		"apiario-apiario-module~calendar-calendar-module~charts-charts-module~dashboard-dashboard-module~invo~469a242c",
 		"common",
 		"invoice-invoice-module"
 	],
@@ -64,9 +66,9 @@ var map = {
 	],
 	"./dashboard/dashboard.module": [
 		"./src/app/dashboard/dashboard.module.ts",
-		"calendar-calendar-module~charts-charts-module~dashboard-dashboard-module~invoice-invoice-module",
+		"apiario-apiario-module~calendar-calendar-module~charts-charts-module~dashboard-dashboard-module~invo~469a242c",
+		"apiario-apiario-module~charts-charts-module~dashboard-dashboard-module",
 		"calendar-calendar-module~dashboard-dashboard-module",
-		"charts-charts-module~dashboard-dashboard-module",
 		"dashboard-dashboard-module~pages-pages-module",
 		"common",
 		"dashboard-dashboard-module"

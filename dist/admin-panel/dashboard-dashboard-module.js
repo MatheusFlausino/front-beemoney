@@ -575,8 +575,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var fullcalendar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! fullcalendar */ "./node_modules/fullcalendar/dist/fullcalendar.js");
 /* harmony import */ var fullcalendar__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(fullcalendar__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*!  */ "./node_modules//.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _assets_js_services__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/js/services */ "./src/assets/js/services/index.ts");
 /* harmony import */ var _assets_js___WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/js/ */ "./src/assets/js/index.ts");
 var __assign = (undefined && undefined.__assign) || Object.assign || function(t) {
@@ -673,7 +673,7 @@ var DashboardHomeComponent = /** @class */ (function () {
             this.MuralApi.find({ include: 'user', limit: 20, order: 'createdAt DESC' }).subscribe(function (response) {
                 if (response.length != 0) {
                     response.forEach(function (element) {
-                        _this.msgs.push({ me: (_this.userId === element.user.id) ? true : false, user: element.user.name, date: __WEBPACK_IMPORTED_MODULE_4__(element.date).format("YYYY/MM/DD HH:mm"), text: element.message });
+                        _this.msgs.push({ me: (_this.userId === element.user.id) ? true : false, user: element.user.name, date: moment__WEBPACK_IMPORTED_MODULE_4__(element.date).format("YYYY/MM/DD HH:mm"), text: element.message });
                     });
                     _this.msgs.reverse();
                 }
@@ -691,8 +691,8 @@ var DashboardHomeComponent = /** @class */ (function () {
     DashboardHomeComponent.prototype.pushMsg = function (f) {
         var _this = this;
         if (f.form.valid && f.form.value.text != '') {
-            this.MuralApi.create({ message: f.form.value.text, date: __WEBPACK_IMPORTED_MODULE_4__(), id_u: this.userId }).subscribe(function (response) {
-                _this.msgs.push({ me: true, date: __WEBPACK_IMPORTED_MODULE_4__().format("YYYY/MM/DD HH:mm"), text: f.form.value.text });
+            this.MuralApi.create({ message: f.form.value.text, date: moment__WEBPACK_IMPORTED_MODULE_4__(), id_u: this.userId }).subscribe(function (response) {
+                _this.msgs.push({ me: true, date: moment__WEBPACK_IMPORTED_MODULE_4__().format("YYYY/MM/DD HH:mm"), text: f.form.value.text });
                 f.form.reset();
             });
         }

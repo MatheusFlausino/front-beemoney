@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["charts-charts-module~dashboard-dashboard-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["apiario-apiario-module~charts-charts-module~dashboard-dashboard-module"],{
 
 /***/ "./node_modules/chart.js/src/chart.js":
 /*!********************************************!*\
@@ -14936,4 +14936,4 @@ module.exports = {
 /***/ })
 
 }]);
-//# sourceMappingURL=charts-charts-module~dashboard-dashboard-module.js.map
+//# sourceMappingURL=apiario-apiario-module~charts-charts-module~dashboard-dashboard-module.js.map
