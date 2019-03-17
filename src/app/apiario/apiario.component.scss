@@ -1,4 +1,15 @@
 @import 'mixins';
+
+.modal-dialog {
+    max-width: unset;
+}
+
+.card-body,
+.exampleChart {
+    position: relative;
+    min-height: 75vh;
+}
+
 .honey-content {
     -webkit-box-shadow: 7px 9px 15px -5px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 7px 9px 15px -5px rgba(0, 0, 0, 0.75);
@@ -7,28 +18,32 @@
     height: 300px;
     padding: 20px 10px;
     background-color: white;
-    .honey{
+
+    .honey {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
+
     .variables {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-    .pot{
-        background:url('/assets/img/honey-jar.png') center no-repeat;
+
+    .pot {
+        background: url('/assets/img/honey-jar.png') center no-repeat;
         background-size: contain;
         height: 100%;
-        
+
     }
+
     .title-honey {
         font-size: 22px;
         font-weight: bold;
     }
 
-    .col-5{
+    .col-5 {
         padding: 0px;
     }
 
@@ -41,7 +56,8 @@
         .variable-title {
             font-weight: bold;
         }
-        .variable-btn{
+
+        .variable-btn {
             padding: 10px 15px;
             border: 1px solid #777;
             margin-top: 10px;
@@ -52,11 +68,11 @@
 
 @include media-breakpoint-down(sm) {
     .container {
-      padding: 0px;
-    }
-  
-    .honey-div {
-      padding: 0px;
+        padding: 0px;
     }
 
-  }
+    .honey-div {
+        padding: 0px;
+    }
+
+}

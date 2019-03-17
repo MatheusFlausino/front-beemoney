@@ -1,27 +1,49 @@
 <div class="container">
-<div class="row">
+  <div class="row">
     <div *ngFor="let colmeia of colmeias" class="col-md-4 col-12 honey-div mb-4">
-        <div class="honey-content d-flex">
-          <div class="col-7 honey">
-            <span class="title-honey">{{colmeia.nome}}</span>
-            <div class="pot">
-            </div>
+      <div class="honey-content d-flex">
+        <div class="col-7 honey">
+          <span class="title-honey">{{colmeia.nome}}</span>
+          <div class="pot">
           </div>
-          <div class="col-5 variables py-4">
-            <div class="variable-content d-flex">
-              <div class="variable-title">Preenchido</div>
-              <div class="variable-value">{{colmeia.porcentagem}}%</div>
-            </div>
-            <div class="variable-content d-flex">
-              <div class="variable-title">Peso</div>
-              <div class="variable-value">{{colmeia.peso}} Kg</div>
-            </div>
-            <div class="variable-content d-flex">
-              <div class="variable-title">Gráfico</div>
-              <div class="variable-btn"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
-            </div>
+        </div>
+        <div class="col-5 variables py-4">
+          <div class="variable-content d-flex">
+            <div class="variable-title">Preenchido</div>
+            <div class="variable-value">{{colmeia.porcentagem}}%</div>
+          </div>
+          <div class="variable-content d-flex">
+            <div class="variable-title">Peso</div>
+            <div class="variable-value">{{colmeia.peso}} Kg</div>
+          </div>
+          <div data-toggle="modal" data-target="#myModal" (click)="openGraph(colmeia.peso)" class="variable-content d-flex">
+            <div class="variable-title">Gráfico</div>
+            <div class="variable-btn"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog m-4">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-body">
+            <canvas id="line-chart" ></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
