@@ -19,8 +19,8 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() { }
 
-  login(f: NgForm) {    
-    if (f.form.valid) {
+  login(f: NgForm) {
+    if (f && f.form && f.form.valid) {
       this.UsuarioApi.login({ email: f.form.value.email, password: f.form.value.password }).subscribe(
         // (response: any) => {
         // debugger;
@@ -28,8 +28,8 @@ export class AuthComponent implements OnInit {
         // window.location.reload();  
         // }
         data => {
-        LoopBackConfig.setAuthPrefix(data)   
-        window.location.reload();  
+          LoopBackConfig.setAuthPrefix(data)
+          window.location.reload();
         },
         err => {
           swal({
@@ -37,11 +37,10 @@ export class AuthComponent implements OnInit {
             text: 'Tem certeza de sua senha, apicultor?',
             imageUrl: '/assets/img/bee-cry.png',
             imageWidth: 200,
-            imageHeight: 200,   
-            confirmButtonText: 'Voltar',
-
+            imageHeight: 200,
+            confirmButtonText: 'Voltar'
           })
-          
+
         },
       )
     }
