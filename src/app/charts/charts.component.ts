@@ -260,7 +260,7 @@ export class ChartsComponent implements OnInit {
         responsive: true
       }
     });
-  }
+  } 
 
   private barChart() {
     const bar = new Chart(document.getElementById('bar-chart'), {
