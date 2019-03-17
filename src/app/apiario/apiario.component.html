@@ -1,25 +1,27 @@
 <div class="container">
-  <div class="col-md-4 col-12 honey-div">
-    <div class="honey-content d-flex">
-      <div class="col-7 honey">
-        <span class="title-honey">Comeia 1</span>
-        <div class="pot">
+<div class="row">
+    <div *ngFor="let colmeia of colmeias" class="col-md-4 col-12 honey-div mb-4">
+        <div class="honey-content d-flex">
+          <div class="col-7 honey">
+            <span class="title-honey">{{colmeia.nome}}</span>
+            <div class="pot">
+            </div>
+          </div>
+          <div class="col-5 variables py-4">
+            <div class="variable-content d-flex">
+              <div class="variable-title">Preenchido</div>
+              <div class="variable-value">{{colmeia.porcentagem}}%</div>
+            </div>
+            <div class="variable-content d-flex">
+              <div class="variable-title">Peso</div>
+              <div class="variable-value">{{colmeia.peso}} Kg</div>
+            </div>
+            <div class="variable-content d-flex">
+              <div class="variable-title">Gráfico</div>
+              <div class="variable-btn"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-5 variables py-4">
-        <div class="variable-content d-flex">
-          <div class="variable-title">Preenchido</div>
-          <div class="variable-value">88%</div>
-        </div>
-        <div class="variable-content d-flex">
-          <div class="variable-title">Peso</div>
-          <div class="variable-value">7.4 Kg</div>
-        </div>
-        <div class="variable-content d-flex">
-          <div class="variable-title">Gráfico</div>
-          <div class="variable-btn"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </div>

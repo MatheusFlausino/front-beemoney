@@ -1,8 +1,8 @@
 <div class="sidebar"  [class.hide]="commonService.sidebarToggleValue">
   <div class="sidebar-header align-middle">
-    <!-- <img class="brandImg" src="http://via.placeholder.com/60x60" alt="brandImg"> -->
+    <!-- <img class="brandImg" src="/assets/img/logo.png" alt="brandImg"> -->
     <span class="text-uppercase p-3">BEE</span>
-    <strong class="heading text-uppercase d-inline-block mini-hide">BeeMoney</strong>
+    <strong [routerLink]="'/'" class="heading text-uppercase d-inline-block mini-hide"><img [routerLink]="'/'" class="brandImg" height="40px" src="/assets/img/logo.png" alt="brandImg"></strong>
   </div>
   <hr class="underline"> 
   <div class="sidebar-body">

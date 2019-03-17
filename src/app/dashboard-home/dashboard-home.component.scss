@@ -5,10 +5,9 @@
     img {
       height: 18px;
     }
-
     -webkit-box-shadow: 7px 9px 15px -5px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 7px 9px 15px -5px rgba(0, 0, 0, 0.75);
-    box-shadow: 7px 9px 15px -5px rgba(207, 6, 6, 0.75);
+    box-shadow: 7px 9px 15px -5px rgba(0, 0, 0, 0.75);
     border-radius: 10px;
     height: 200px;
     padding: 30px;
@@ -45,7 +44,7 @@
       padding: 8px 10px;
       border-radius: 10px;
       border: 1px solid black;
-
+      cursor: pointer;
       img {
         height: 30px;
       }

@@ -15,7 +15,7 @@ export class SidebarComponent {
   }
 
   sidebarItems = [
-    {link: '/', label: 'Dashboard', icon: 'dashboard'},
+    {link: '/', label: 'Apiários', icon: 'dashboard'},
     // {link: '/categories', label: 'Categorias', icon: 'date_range'},
     // {link: '/invoice', label: 'Faturas', icon: 'insert_drive_file'}
     // {label: 'Components', icon: 'apps', subItem: [
