@@ -221,7 +221,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 // import { NotificationsModule } from 'projects/angular6-notifications/src/public_api';
 var AppModule = /** @class */ (function () {
     function AppModule() {
-        _assets_js_index__WEBPACK_IMPORTED_MODULE_6__["LoopBackConfig"].setBaseURL('http://app.beemoney.com/api');
+        _assets_js_index__WEBPACK_IMPORTED_MODULE_6__["LoopBackConfig"].setBaseURL('http://app.beemoney.com');
         _assets_js_index__WEBPACK_IMPORTED_MODULE_6__["LoopBackConfig"].setApiVersion('api');
     }
     AppModule = __decorate([

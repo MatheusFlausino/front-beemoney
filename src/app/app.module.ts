@@ -27,7 +27,7 @@ import { SDKBrowserModule, LoopBackConfig} from '../assets/js/index';
 })
 export class AppModule {
   constructor() {
-    LoopBackConfig.setBaseURL('http://app.beemoney.com/api');
+    LoopBackConfig.setBaseURL('http://app.beemoney.com');
     LoopBackConfig.setApiVersion('api');
   }
  }
