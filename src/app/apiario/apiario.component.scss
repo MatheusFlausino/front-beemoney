@@ -1,0 +1,62 @@
+@import 'mixins';
+.honey-content {
+    -webkit-box-shadow: 7px 9px 15px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 7px 9px 15px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 7px 9px 15px -5px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    height: 300px;
+    padding: 20px 10px;
+    background-color: white;
+    .honey{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .variables {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .pot{
+        background:url('/assets/img/honey-jar.png') center no-repeat;
+        background-size: contain;
+        height: 100%;
+        
+    }
+    .title-honey {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .col-5{
+        padding: 0px;
+    }
+
+    .variable-content {
+        font-size: 18px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .variable-title {
+            font-weight: bold;
+        }
+        .variable-btn{
+            padding: 10px 15px;
+            border: 1px solid #777;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .container {
+      padding: 0px;
+    }
+  
+    .honey-div {
+      padding: 0px;
+    }
+
+  }
