@@ -1,0 +1,4 @@
+<div *ngIf="field.type == 'string'">
+  <label class="col-form-label">{{field.label}}</label>
+  <input (ngModelChange)="change($event)" [(ngModel)]="inputValue" type="text" class="form-control">
+</div>

@@ -1,0 +1,25 @@
+{
+    "label": "Medidas",
+    "label_row": "Medida",
+    "settings": {
+        "add": true,
+        "edit": true,
+        "delete": true
+    },
+    "fields": [{
+        "name": "nome",
+        "type": "string",
+        "label": "Nome da medida",
+        "size": "6",
+        "visible": true,
+        "editable": true
+    },
+    {
+        "name": "teste",
+        "type": "string",
+        "label": "Teste",
+        "size": "6",
+        "visible": true,
+        "editable": true
+    }]
+}

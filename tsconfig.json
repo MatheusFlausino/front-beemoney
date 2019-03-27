@@ -10,7 +10,7 @@
     "experimentalDecorators": true,
     "target": "es5",
     "types": [
-      "socket.io-client"
+      "node","socket.io-client",
     ],
     "typeRoots": [
       "node_modules/@types"

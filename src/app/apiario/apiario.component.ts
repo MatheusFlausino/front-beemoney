@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as Chart from 'chart.js'
 import * as moment from 'moment';
@@ -9,13 +9,19 @@ import * as moment from 'moment';
   styleUrls: ['./apiario.component.scss']
 })
 export class ApiarioComponent implements OnInit {
-
+  @ViewChild('gray') gray;
+  @ViewChild('color') color;
   params;
   colmeias;
   _line;
-
+  customMargin;
+  showImage;
+  porcentagem;
   constructor(protected route: ActivatedRoute, protected router: Router) {
     this.colmeias = [];
+    this.customMargin = '40px 0px';
+    this.showImage = false;
+    this.porcentagem = 0;
   }
 
   openGraph = (peso) => {    
@@ -24,6 +30,7 @@ export class ApiarioComponent implements OnInit {
 
   ngOnInit() {
 
+    
     this.route.params.subscribe(params => this.params = params);
     if (this.params && this.params.id) {
       if (this.params.id == 1) {
@@ -76,6 +83,39 @@ export class ApiarioComponent implements OnInit {
     }
 
   }
+
+  ngAfterViewInit() {
+    // Loadgo.init(document.getElementById('logo'));
+
+    window.onload = (event) => {
+      // debugger;
+      console.log(this.gray.nativeElement.margin);
+      var element = this.gray.nativeElement
+      // // var _element = this.color.nativeElement.style
+      var style = element.currentStyle || window.getComputedStyle(element)
+      // var _margin = style.margin.split(" ")[1].split('px')[0];    
+      // console.log(style);
+      // console.log(style['margin']);
+      // var x = Object.assign(style, {});
+      // console.log(x[0]);
+      // console.log(x.margin);
+      // console.log(x.marginTop);
+      // console.log(x.marginBottom);    
+      // console.log(document.getElementsByClassName('copy'));
+      // var y = document.gets('copy')[0]
+      // console.log(y.style);
+      console.log(style);
+      
+      this.customMargin = style.marginTop + ' 0px';
+      this.showImage = true
+
+      setTimeout(() => {
+        this.porcentagem = 2000;
+      }, 2000);
+    };
+    
+    //Copy in all the jBottoms code from the script.js. Typescript will complain but it works just fine
+ }
 
   private lineChart(peso) {
 
@@ -137,3 +177,5 @@ export class ApiarioComponent implements OnInit {
     });
   }
 }
+
+

@@ -10,6 +10,8 @@ const routes: Routes = [
       { path: '', component: DashboardHomeComponent },
       { path: 'categories', loadChildren: '../categories/categories.module#CategoriesModule' },
       { path: 'apiario', loadChildren: '../apiario/apiario.module#ApiarioModule' },
+      { path: 'medida', loadChildren: '../medida/medida.module#MedidaModule' },
+      // { path: 'teste', loadChildren: '../medida/medida.module#MedidaModule' },
       { path: 'invoice', loadChildren: '../invoice/invoice.module#InvoiceModule' },      
       //template \/
       { path: 'components', loadChildren: '../components/components.module#ComponentsModule' },

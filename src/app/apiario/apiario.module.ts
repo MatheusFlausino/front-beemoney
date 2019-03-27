@@ -4,7 +4,6 @@ import { ApiarioComponent } from './apiario.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
-// import { NewApiarioComponent } from './new-categories/new-categories.component';
 import { DataTablesModule } from 'angular-datatables';
 
 const routes: Routes = [

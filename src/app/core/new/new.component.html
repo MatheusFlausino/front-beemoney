@@ -1,0 +1,31 @@
+<h5 class="mb-4"><b>{{params.id ? 'Editar ' + headers.label_row : 'Nova '+ headers.label_row}}</b></h5>
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="save()">
+      <!-- <form > -->
+      <div class="form-group row">
+        <app-inputs [ngClass]="'col-sm-'+field.size" class="col-xs-12" [(inputValue)]="data[field.name]" *ngFor="let field of fields" [field]="field"></app-inputs>
+        
+        <!-- <div class="col-sm-6 col-xs-12">
+          <label class="col-form-label">Categoria</label>
+          <input name="name" ngModel="{{data.name}}" type="text" class="form-control" placeholder="Categoria">
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <label class="col-form-label">Ícone</label>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <div style="width:48px" class="input-group-text"><i class="material-icons">{{form.form.value.icon}}</i>
+              </div>
+            </div>
+            <input name="icon" ngModel="{{data.icon}}" type="text" class="form-control" placeholder="Ícone">
+          </div>
+
+        </div> -->
+        <div class="col-sm-12 d-flex justify-content-center mt-4">
+          <button [routerLink]="'/'+pathRoute" type="button" class="btn w-13 w-sm-80 m-3 btn-danger">VOLTAR</button>
+          <button type="submit" class="btn w-13 w-sm-80 m-3 btn-primary">SALVAR</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

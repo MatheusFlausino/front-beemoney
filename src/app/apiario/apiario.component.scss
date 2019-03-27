@@ -35,12 +35,31 @@
         background: url('/assets/img/honey-jar.png') center no-repeat;
         background-size: contain;
         height: 100%;
+    }
+
+    .pot:before {
+        content: "",
+
+
 
     }
 
     .title-honey {
         font-size: 22px;
         font-weight: bold;
+
+
+    }
+
+    .gray-image{
+        filter: grayscale(100%)
+    }
+
+    .copy {        
+        -webkit-transition: clip-path 20s; /* Safari */
+        transition: clip-path 20s;
+        // clip-path: inset(0 0 0 0);
+        position: absolute;        
     }
 
     .col-5 {
