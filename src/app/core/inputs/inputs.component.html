@@ -30,6 +30,6 @@
 <!-- Autocomplete -->
 <div *ngIf="field.type == 'autocomplete'">
   <label class="col-form-label">{{field.label}}</label>
-  <ng-select #autocomplete (search)="onSearch($event)" (change)="change($event)" [(ngModel)]="inputValue" bindLabel="name" bindValue="id"
+  <ng-select #autocomplete (focus)="search($event)" (search)="onSearch($event)" (change)="change($event)" [(ngModel)]="inputValue" bindLabel="name" bindValue="id"
     [items]="selectItems" placeholder="{{field.label}}" ></ng-select>
 </div>

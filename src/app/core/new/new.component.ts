@@ -60,8 +60,6 @@ export class CoreNewComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.token);
-
     this.route.params.subscribe(params => this.params = params);
     this.pathRoute = this.router.url.split('/')[1];
     this.configs = require('../../../configs/fw_configs.json');
