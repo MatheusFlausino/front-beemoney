@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SDKBrowserModule, LoopBackConfig} from '../assets/js/index';
-// import { NotificationsModule } from 'projects/angular6-notifications/src/public_api';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MyInterceptor } from './interceptor';
+declare const require: any
 
 @NgModule({
   declarations: [
@@ -19,15 +20,23 @@ import { SDKBrowserModule, LoopBackConfig} from '../assets/js/index';
     AppRoutingModule,
     SDKBrowserModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
     // NotificationsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor() {
-    LoopBackConfig.setBaseURL('http://app.beemoney.co');
+    let configs = require('../configs/fw_configs.json');
+    LoopBackConfig.setBaseURL(configs.api.split('/api')[0]);
     LoopBackConfig.setApiVersion('api');
   }
  }

@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { CategoriaApi } from '../../../assets/js/services';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient ,HttpParams } from '@angular/common/http';
+import { LoopBackAuth } from '../../../assets/js/';
+
 
 declare const require: any
 
@@ -22,20 +24,28 @@ export class CoreNewComponent implements OnInit {
   fields;
   configs;
   config;
-  constructor(protected route: ActivatedRoute, protected router: Router, private http: HttpClient) {
+  token;
+
+  constructor(protected route: ActivatedRoute, protected router: Router, private http: HttpClient, private LoopBackAuth: LoopBackAuth) {
     this.data = {};
     this.pathRoute = router.url;
-  }
+    this.token = this.LoopBackAuth.getAccessTokenId();
 
-  save(f: NgForm) {
-    this.http.post(this.configs.api + this.config.apiRoute, this.data).subscribe(
+  }
+  
+
+  save(f: NgForm) {    
+    debugger;
+    let type = this.data.id ? 'put' : 'post';
+
+    this.http[type](this.configs.api + this.config.apiRoute, this.data).subscribe(
       data => {
-        console.log('deubom',data);
-        
+        this.router.navigate(['/'+ this.pathRoute])
+
       },
       err => {
         console.log(err);
-        
+
         console.log("Error occured.")
       }
     );
@@ -50,7 +60,7 @@ export class CoreNewComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log(this.token);
 
     this.route.params.subscribe(params => this.params = params);
     this.pathRoute = this.router.url.split('/')[1];
@@ -63,13 +73,32 @@ export class CoreNewComponent implements OnInit {
 
     // console.log(config,this.headers);
 
-    // if(this.params && this.params.id){
-    //   this.CategoriaApi.findById(this.params.id).subscribe((response: any) => {
-    //     this.data.name = response.name
-    //     this.data.icon = response.icon
-    //   });
-
-    // }
+    if(this.params && this.params.id){
+      let searchParams = new HttpParams({
+        fromObject: {
+            filter: JSON.stringify({"where":{"id":this.params.id}})
+        }
+    });
+      this.http.get(this.configs.api + this.config.apiRoute, {params:searchParams}).subscribe(
+        data => {
+          // this.router.navigate(['/'+ this.pathRoute])
+          let _data = data[0]
+          if(_data){
+            this.data.id = _data.id
+            this.fields.forEach(element => {
+              this.data[element.name] = _data[element.name]
+            });
+          }else{
+            this.router.navigate(['/'+ this.pathRoute])
+          }
+        },
+        err => {
+          console.log(err);
+          this.router.navigate(['/'+ this.pathRoute])
+          console.log("Error occured.")
+        }
+      );
+    }
   }
 
 }

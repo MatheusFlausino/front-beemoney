@@ -16,10 +16,35 @@
     },
     {
         "name": "teste",
-        "type": "string",
-        "label": "Teste",
+        "type": "autocomplete",
+        "label": "Teste de autocomplete",
         "size": "6",
         "visible": true,
         "editable": true
-    }]
+    },
+    {
+        "name": "teste2",
+        "type": "currency",
+        "label": "Teste de currency",
+        "size": "6",
+        "visible": true,
+        "editable": true
+    },
+    {
+        "name": "teste3",
+        "type": "integer",
+        "label": "Teste de integer",
+        "size": "6",
+        "visible": true,
+        "editable": true
+    },
+    {
+        "name": "teste4",
+        "type": "float",
+        "label": "Teste de float",
+        "size": "6",
+        "visible": true,
+        "editable": true
+    }
+]
 }

@@ -17,7 +17,7 @@ export class SidebarComponent {
   sidebarItems = [
     {link: '/', label: 'Apiários', icon: 'dashboard'},
     // {link: '/categories', label: 'Categorias', icon: 'date_range'},
-    // {link: '/invoice', label: 'Faturas', icon: 'insert_drive_file'}
+    {link: '/medida', label: 'Medidas', icon: 'insert_drive_file'}
     // {label: 'Components', icon: 'apps', subItem: [
     //   {link: '/components/buttons', label: 'buttons', icon: 'b'},
     //   {link: '/components/grids', label: 'grid System', icon: 'gs'},

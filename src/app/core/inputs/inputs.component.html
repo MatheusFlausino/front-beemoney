@@ -1,4 +1,35 @@
+<!-- String -->
 <div *ngIf="field.type == 'string'">
   <label class="col-form-label">{{field.label}}</label>
-  <input (ngModelChange)="change($event)" [(ngModel)]="inputValue" type="text" class="form-control">
+  <input (ngModelChange)="change($event)" [ngModelOptions]="{updateOn:'blur'}" [(ngModel)]="inputValue" type="text" class="form-control">
+</div>
+
+<!-- Currency -->
+<div *ngIf="field.type == 'currency'">
+  <label class="col-form-label">{{field.label}}</label>
+  <input class="form-control" type="text" [ngModel]="inputValue" mask="dot_separator.2" prefix="R$ " [ngModelOptions]="{updateOn:'blur'}"  (ngModelChange)="change($event)"/>
+</div>
+
+
+<!-- Integer -->
+<div *ngIf="field.type == 'integer'">
+  <label class="col-form-label">{{field.label}}</label>
+  <input class="form-control" type="text" [ngModel]="inputValue" mask="0{99}" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="change($event)"/>
+</div>
+
+
+
+<!-- Float -->
+<div *ngIf="field.type == 'float'">
+  <label class="col-form-label">{{field.label}}</label>
+  <input class="form-control" type="text" [ngModel]="inputValue" mask="comma_separator.5" (ngModelChange)="change($event)"/>
+</div>
+
+
+
+<!-- Autocomplete -->
+<div *ngIf="field.type == 'autocomplete'">
+  <label class="col-form-label">{{field.label}}</label>
+  <ng-select #autocomplete (search)="onSearch($event)" (change)="change($event)" [(ngModel)]="inputValue" bindLabel="name" bindValue="id"
+    [items]="selectItems" placeholder="{{field.label}}" ></ng-select>
 </div>

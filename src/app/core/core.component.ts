@@ -4,6 +4,7 @@ import { CategoriaApi } from '../../assets/js/services';
 import * as moment from 'moment';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject, config } from 'rxjs';
+import { Injector } from '@angular/core';
 declare const require: any
 
 @Component({
@@ -24,8 +25,10 @@ export class CoreListComponent implements OnInit {
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
 
-  constructor(private _router: Router, private CategoriaApi: CategoriaApi) {
+  constructor(private _router: Router, private injector: Injector) {
     this.pathRoute = _router.url;    
+    const A = this.injector.get('A');
+    console.log(A);
   }
   // delete(id) {  
   //   //CategoriaApi

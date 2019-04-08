@@ -7,8 +7,8 @@ import { FormsModule }   from '@angular/forms';
 import { CoreNewComponent } from './new/new.component';
 import {InputsComponent} from './inputs/inputs.component'
 import { DataTablesModule } from 'angular-datatables';
-import { HttpClientModule } from '@angular/common/http';
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import {NgxMaskModule} from 'ngx-mask'
 const routes: Routes = [
   { path: '', component: CoreListComponent },
   { path: 'new', component: CoreNewComponent },
@@ -22,8 +22,10 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     DataTablesModule,
     FormsModule,
-    HttpClientModule
+    NgSelectModule,    
+    NgxMaskModule.forRoot(null)
   ],
-  declarations: [CoreListComponent, CoreNewComponent,InputsComponent]
+  declarations: [CoreListComponent, CoreNewComponent,InputsComponent],
+
 })
 export class CoreModule { }
