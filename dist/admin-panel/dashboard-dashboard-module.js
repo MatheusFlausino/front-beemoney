@@ -543,7 +543,7 @@ var CommonService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6 col-12 card-apiario\">\n      <div class=\"body-apiario mb-4 d-flex\">\n        <div class=\"qtd-colmeias\"><img src=\"/assets/img/bee.png\"> 5 colmeias</div>\n        <div class=\"title\">Apiário - Capixingui</div>\n        <div class=\"desc-body mt-auto\">\n          <div class=\"desc mb-2\">Descrição de um apiário Capixingui</div>\n          <div class=\"location\"><i><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> Ortigueira - PR</i></div>\n          <div class=\"time\"><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> Criado a 42 dias</div>\n        </div>\n        <div [routerLink]=\"'/apiario/1'\" class=\"btn-show d-flex\">\n          <!-- <img src=\"/assets/img/honeypot.png\" alt=\"\"> -->\n          <div class=\"desc-show\">Detalhes da produção</div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-6 col-12 card-apiario\">\n      <div class=\"body-apiario mb-4 d-flex\">\n        <div class=\"qtd-colmeias\"><img src=\"/assets/img/bee.png\"> 3 colmeias</div>\n        <div class=\"title\">Apiário - Jataí</div>\n        <div class=\"desc-body mt-auto\">\n          <div class=\"desc mb-2\">Descrição de um apiário de Jataí</div>\n          <div class=\"location\"><i><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> Londrina - PR</i></div>\n          <div class=\"time\"><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> Criado a 27 dias</div>\n        </div>\n        <div [routerLink]=\"'/apiario/2'\" class=\"btn-show d-flex\">\n          <!-- <img src=\"/assets/img/honeypot.png\" alt=\"\"> -->\n          <div class=\"desc-show\">Detalhes da produção</div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6 col-12 card-apiario\">\n      <div class=\"body-apiario mb-4 d-flex\">\n        <div class=\"qtd-colmeias\"><img src=\"/assets/img/bee.png\"> 1 colmeia(s)</div>\n        <div class=\"title\">Apiário - Capixingui</div>\n        <div class=\"desc-body mt-auto\">\n          <div class=\"desc mb-2\">Descrição de um apiário Capixingui</div>\n          <div class=\"location\"><i><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> Ortigueira - PR</i></div>\n          <div class=\"time\"><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> Criado à {{day}} dias</div>\n        </div>\n        <div [routerLink]=\"'/apiario/1'\" class=\"btn-show d-flex\">\n          <!-- <img src=\"/assets/img/honeypot.png\" alt=\"\"> -->\n          <div class=\"desc-show\">Detalhes da produção</div>\n        </div>\n      </div>\n    </div>\n    <!-- <div class=\"col-md-6 col-12 card-apiario\">\n      <div class=\"body-apiario mb-4 d-flex\">\n        <div class=\"qtd-colmeias\"><img src=\"/assets/img/bee.png\"> 3 colmeias</div>\n        <div class=\"title\">Apiário - Jataí</div>\n        <div class=\"desc-body mt-auto\">\n          <div class=\"desc mb-2\">Descrição de um apiário de Jataí</div>\n          <div class=\"location\"><i><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> Londrina - PR</i></div>\n          <div class=\"time\"><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> Criado a 27 dias</div>\n        </div>\n        <div [routerLink]=\"'/apiario/2'\" class=\"btn-show d-flex\">          \n          <div class=\"desc-show\">Detalhes da produção</div>\n        </div>\n      </div>\n    </div> -->\n  </div>\n</div>"
 
 /***/ }),
 
@@ -609,14 +609,6 @@ var DashboardHomeComponent = /** @class */ (function () {
         this.CategoriaApi = CategoriaApi;
         this.ToDoApi = ToDoApi;
         this.LoopBackAuth = LoopBackAuth;
-        // activitys = [
-        //   { icon: 'edit', head: 'heading', body: 'body' },
-        //   { icon: 'map', head: 'heading', body: 'body' },
-        //   { icon: 'edit', head: 'heading', body: 'body' },
-        //   { icon: 'edit', head: 'heading', body: 'body' },
-        //   { icon: 'map', head: 'heading', body: 'body' },
-        //   { icon: 'map', head: 'heading', body: 'body' }
-        // ];
         this.tasks = [];
         // msgs = [
         //   { me: true, date: "2018/09/01 19:30", text: 'Mensagem minha' },
@@ -632,6 +624,9 @@ var DashboardHomeComponent = /** @class */ (function () {
         this.userId = LoopBackAuth.getCurrentUserId();
     }
     DashboardHomeComponent.prototype.ngOnInit = function () {
+        var _day = moment__WEBPACK_IMPORTED_MODULE_4__('11/04/2019', 'DD/MM/YYYY');
+        var now = moment__WEBPACK_IMPORTED_MODULE_4__();
+        this.day = now.diff(_day, 'days') + 1;
         // this.getAllMsgs()
         // this.getAllTasks()
         // setInterval(() => this.getAllMsgs(), 3000);
@@ -883,6 +878,8 @@ var routes = [
             { path: '', component: _dashboard_home_dashboard_home_component__WEBPACK_IMPORTED_MODULE_3__["DashboardHomeComponent"] },
             { path: 'categories', loadChildren: '../categories/categories.module#CategoriesModule' },
             { path: 'apiario', loadChildren: '../apiario/apiario.module#ApiarioModule' },
+            { path: 'medida', loadChildren: '../medida/medida.module#MedidaModule' },
+            // { path: 'teste', loadChildren: '../medida/medida.module#MedidaModule' },
             { path: 'invoice', loadChildren: '../invoice/invoice.module#InvoiceModule' },
             //template \/
             { path: 'components', loadChildren: '../components/components.module#ComponentsModule' },

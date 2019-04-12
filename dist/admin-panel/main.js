@@ -31,7 +31,7 @@ var map = {
 		"./src/app/charts/charts.module.ts",
 		"apiario-apiario-module~calendar-calendar-module~charts-charts-module~dashboard-dashboard-module~invo~469a242c",
 		"apiario-apiario-module~charts-charts-module~dashboard-dashboard-module",
-		"charts-charts-module~forms-forms-module",
+		"charts-charts-module~forms-forms-module~medida-medida-module",
 		"common",
 		"charts-charts-module"
 	],
@@ -45,7 +45,7 @@ var map = {
 	],
 	"../forms/forms.module": [
 		"./src/app/forms/forms.module.ts",
-		"charts-charts-module~forms-forms-module",
+		"charts-charts-module~forms-forms-module~medida-medida-module",
 		"common",
 		"forms-forms-module"
 	],
@@ -58,6 +58,12 @@ var map = {
 	"../maps/maps.module": [
 		"./src/app/maps/maps.module.ts",
 		"maps-maps-module"
+	],
+	"../medida/medida.module": [
+		"./src/app/medida/medida.module.ts",
+		"charts-charts-module~forms-forms-module~medida-medida-module",
+		"common",
+		"medida-medida-module"
 	],
 	"../tables/tables.module": [
 		"./src/app/tables/tables.module.ts",
@@ -204,6 +210,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! .//app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _assets_js_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/js/index */ "./src/assets/js/index.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _interceptor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./interceptor */ "./src/app/interceptor.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -220,10 +228,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-// import { NotificationsModule } from 'projects/angular6-notifications/src/public_api';
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
-        _assets_js_index__WEBPACK_IMPORTED_MODULE_6__["LoopBackConfig"].setBaseURL('http://app.beemoney.co');
+        var configs = __webpack_require__(/*! ../configs/fw_configs.json */ "./src/configs/fw_configs.json");
+        _assets_js_index__WEBPACK_IMPORTED_MODULE_6__["LoopBackConfig"].setBaseURL(configs.api.split('/api')[0]);
         _assets_js_index__WEBPACK_IMPORTED_MODULE_6__["LoopBackConfig"].setApiVersion('api');
     }
     AppModule = __decorate([
@@ -237,15 +247,87 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
                 _assets_js_index__WEBPACK_IMPORTED_MODULE_6__["SDKBrowserModule"].forRoot(),
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"]
                 // NotificationsModule,
             ],
-            providers: [],
+            providers: [
+                {
+                    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"],
+                    useClass: _interceptor__WEBPACK_IMPORTED_MODULE_8__["MyInterceptor"],
+                    multi: true
+                }
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         }),
         __metadata("design:paramtypes", [])
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/interceptor.ts":
+/*!********************************!*\
+  !*** ./src/app/interceptor.ts ***!
+  \********************************/
+/*! exports provided: MyInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyInterceptor", function() { return MyInterceptor; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _assets_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/js */ "./src/assets/js/index.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var MyInterceptor = /** @class */ (function () {
+    function MyInterceptor(LoopBackAuth) {
+        this.LoopBackAuth = LoopBackAuth;
+        this.token = this.LoopBackAuth.getAccessTokenId();
+    }
+    //function which will be called for all http calls
+    MyInterceptor.prototype.intercept = function (request, next) {
+        //how to update the request Parameters
+        if (this.token) {
+            request = request.clone({ headers: request.headers.set('Authorization', this.token) });
+            request = request.clone({ headers: request.headers.set('Content-Type', 'application/json') });
+            request = request.clone({ headers: request.headers.set('Accept', 'application/json') });
+        }
+        //logging the updated Parameters to browser's console
+        // console.log("Before making api call : ", request);
+        return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(function (event) {
+            //logging the http response to browser's console in case of a success
+            if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpResponse"]) {
+                // console.log("api call success :", event);
+            }
+        }, function (error) {
+            //logging the http response to browser's console in case of a failuer
+            if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpResponse"]) {
+                // console.log("api call error :", event);
+            }
+        }));
+    };
+    MyInterceptor = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_assets_js__WEBPACK_IMPORTED_MODULE_3__["LoopBackAuth"]])
+    ], MyInterceptor);
+    return MyInterceptor;
 }());
 
 
@@ -7561,6 +7643,17 @@ var SDKStorage = /** @class */ (function (_super) {
 }(BaseStorage));
 
 
+
+/***/ }),
+
+/***/ "./src/configs/fw_configs.json":
+/*!*************************************!*\
+  !*** ./src/configs/fw_configs.json ***!
+  \*************************************/
+/*! exports provided: api, pages, default */
+/***/ (function(module) {
+
+module.exports = {"api":"http://app.beemoney.co/api/","pages":{"medida":{"model":"Medida","apiRoute":"medidas","headers":"medida.json"}}};
 
 /***/ }),
 
