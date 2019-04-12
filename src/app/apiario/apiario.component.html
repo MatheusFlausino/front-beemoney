@@ -7,7 +7,7 @@
           <!-- <div class="pot"></div>           -->
           <div class="position-relative d-flex">
             <img #gray src="/assets/img/honey-jar.png" class="img-fluid m-auto gray-image" alt="">
-            <img [ngStyle]="{'margin': customMargin,'clip-path': 'inset(' +(100-colmeia.percent)+'%' + ' 0 0 0)'}" *ngIf="colmeia && colmeia.percent"
+            <img [ngStyle]="{'margin': customMargin,'clip-path': 'inset(' +(100-colmeia.percent)+'%' + ' 0 0 0)'}" *ngIf="colmeia && colmeia.percent && customMargin"
               src="/assets/img/honey-jar.png" class="img-fluid copy" alt="">
           </div>
         </div>
