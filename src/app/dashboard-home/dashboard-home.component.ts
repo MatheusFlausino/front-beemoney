@@ -27,6 +27,8 @@ export class DashboardHomeComponent implements OnInit {
   //   { icon: 'map', head: 'heading', body: 'body' }
   // ];
 
+  day;
+
   tasks = [
   ];
 
@@ -51,6 +53,9 @@ export class DashboardHomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    let _day = moment('11/04/2019','DD/MM/YYYY');
+    let now = moment()
+    this.day = now.diff(_day,'days')+1;
     // this.getAllMsgs()
     // this.getAllTasks()
     // setInterval(() => this.getAllMsgs(), 3000);

@@ -1,8 +1,9 @@
 import { Component, OnInit ,ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient ,HttpParams } from '@angular/common/http';
 import * as Chart from 'chart.js'
 import * as moment from 'moment';
-
+declare const require: any
 @Component({
   selector: 'app-apiario',
   templateUrl: './apiario.component.html',
@@ -17,11 +18,34 @@ export class ApiarioComponent implements OnInit {
   customMargin;
   showImage;
   porcentagem;
-  constructor(protected route: ActivatedRoute, protected router: Router) {
+  pathRoute;
+  configs;
+  config;
+  colmeia;
+  
+  constructor(protected route: ActivatedRoute,private http: HttpClient, protected router: Router) {
     this.colmeias = [];
     this.customMargin = '40px 0px';
-    this.showImage = false;
+    this.showImage = true;
     this.porcentagem = 0;
+    this.pathRoute = this.router.url.split('/')[1];
+    this.configs = require('../../configs/fw_configs.json');
+    this.config = this.configs.pages[this.pathRoute]
+    this.http['get'](this.configs.api + '/colmeias/get-infos?col_id=1').subscribe(
+      data => {
+        // this.router.navigate(['/'+ this.pathRoute])
+        
+        this.colmeias = [
+          data
+        ]
+        this.colmeia = data
+      },
+      err => {
+        console.log(err);
+
+        console.log("Error occured.")
+      }
+    );
   }
 
   openGraph = (peso) => {    
@@ -30,58 +54,64 @@ export class ApiarioComponent implements OnInit {
 
   ngOnInit() {
 
-    
+    // /api/colmeias/get-infos?col_id=1
     this.route.params.subscribe(params => this.params = params);
-    if (this.params && this.params.id) {
-      if (this.params.id == 1) {
-        this.colmeias = [
-          {
-            nome: "Colmeia 1",
-            porcentagem: "88",
-            peso: "8.8"
-          },
-          {
-            nome: "Colmeia 2",
-            porcentagem: "37",
-            peso: "3.7"
-          },
-          {
-            nome: "Colmeia 3",
-            porcentagem: "23",
-            peso: "2.3"
-          },
-          {
-            nome: "Colmeia 4",
-            porcentagem: "64",
-            peso: "6.4"
-          },
-          {
-            nome: "Colmeia 5",
-            porcentagem: "45",
-            peso: "4.5"
-          },
-        ]
-      } else if (this.params.id == 2) {
-        this.colmeias = [
-          {
-            nome: "Colmeia 6",
-            porcentagem: "92",
-            peso: "9.2"
-          },
-          {
-            nome: "Colmeia 7",
-            porcentagem: "14",
-            peso: "1.4"
-          },
-          {
-            nome: "Colmeia 8",
-            porcentagem: "56",
-            peso: "5.6"
-          }
-        ]
-      }
-    }
 
+
+    setInterval(() => {
+      this.http['get'](this.configs.api + '/colmeias/get-infos?col_id=1').subscribe(
+        data => {
+          // this.router.navigate(['/'+ this.pathRoute])
+          
+          this.colmeias = [
+            data
+          ]
+          this.colmeia = data
+        },
+        err => {
+          console.log(err);
+  
+          console.log("Error occured.")
+        }
+      );
+    }, 5000);
+    // location.reload();
+    // if (this.params && this.params.id) {
+    //   if (this.params.id == 1) {
+    //     this.colmeias = [
+    //       {
+    //         nome: "Colmeia 1",
+    //         porcentagem: "88",
+    //         peso: "8.8"
+    //       }
+    //     ]
+    //   } else if (this.params.id == 2) {
+    //     this.colmeias = [
+    //       {
+    //         nome: "Colmeia 6",
+    //         porcentagem: "92",
+    //         peso: "9.2"
+    //       },
+    //       {
+    //         nome: "Colmeia 7",
+    //         porcentagem: "14",
+    //         peso: "1.4"
+    //       },
+    //       {
+    //         nome: "Colmeia 8",
+    //         porcentagem: "56",
+    //         peso: "5.6"
+    //       }
+    //     ]
+    //   }
+    // }
+    // this.colmeias = [
+    //   {
+    //     nome: "Colméia 1",
+    //     porcentagem: "88",
+    //     peso: "8.8"
+    //   }
+    // ]
   }
 
   ngAfterViewInit() {
@@ -107,11 +137,11 @@ export class ApiarioComponent implements OnInit {
       console.log(style);
       
       this.customMargin = style.marginTop + ' 0px';
-      this.showImage = true
+      // this.showImage = true
 
-      setTimeout(() => {
-        this.porcentagem = 2000;
-      }, 2000);
+      // setTimeout(() => {
+      //   this.showImage = true
+      // }, 200);
     };
     
     //Copy in all the jBottoms code from the script.js. Typescript will complain but it works just fine
