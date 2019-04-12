@@ -1,5 +1,5 @@
 {
-    "api":"http://app.beemoney.co/api/",
+    "api":"http://app.beemoney.co/api",
     "pages":{
         "medida":{
             "model":"Medida",

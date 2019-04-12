@@ -7653,7 +7653,7 @@ var SDKStorage = /** @class */ (function (_super) {
 /*! exports provided: api, pages, default */
 /***/ (function(module) {
 
-module.exports = {"api":"http://app.beemoney.co/api/","pages":{"medida":{"model":"Medida","apiRoute":"medidas","headers":"medida.json"}}};
+module.exports = {"api":"http://app.beemoney.co/api","pages":{"medida":{"model":"Medida","apiRoute":"medidas","headers":"medida.json"}}};
 
 /***/ }),
 
