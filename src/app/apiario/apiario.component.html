@@ -5,7 +5,7 @@
         <div class="col-7 honey">
           <span class="title-honey">{{colmeia.colmeia.nome}}</span>
           <!-- <div class="pot"></div>           -->
-          <div class="position-relative d-flex">
+          <div style="max-height: 225px;" class="position-relative d-flex">
             <img #gray src="/assets/img/honey-jar.png" class="img-fluid m-auto gray-image" alt="">
             <img [ngStyle]="{'margin': customMargin,'clip-path': 'inset(' +(100-colmeia.percent)+'%' + ' 0 0 0)'}" *ngIf="customMargin"
               src="/assets/img/honey-jar.png" class="img-fluid copy" alt="">
