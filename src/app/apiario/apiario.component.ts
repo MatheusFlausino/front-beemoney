@@ -1,6 +1,6 @@
-import { Component, OnInit ,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient ,HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import * as Chart from 'chart.js'
 import * as moment from 'moment';
 declare const require: any
@@ -22,10 +22,11 @@ export class ApiarioComponent implements OnInit {
   configs;
   config;
   colmeia;
-  
-  constructor(protected route: ActivatedRoute,private http: HttpClient, protected router: Router) {
+
+  constructor(protected route: ActivatedRoute, private http: HttpClient, protected router: Router) {
     this.colmeias = [];
     // this.customMargin = '40px 0px';
+    this.colmeia = {percent:0};
     this.showImage = true;
     this.porcentagem = 0;
     this.pathRoute = this.router.url.split('/')[1];
@@ -34,11 +35,18 @@ export class ApiarioComponent implements OnInit {
     this.http['get'](this.configs.api + '/colmeias/get-infos?col_id=1').subscribe(
       data => {
         // this.router.navigate(['/'+ this.pathRoute])
-        
+
         this.colmeias = [
           data
         ]
+        var x = data['percent']
+        data['percent'] = 0;
         this.colmeia = data
+        // this.colmeia.percent = 10;
+        setTimeout(() => {
+          this.colmeia.percent = x;
+        }, 500);
+
       },
       err => {
         console.log(err);
@@ -48,7 +56,7 @@ export class ApiarioComponent implements OnInit {
     );
   }
 
-  openGraph = (peso) => {    
+  openGraph = (peso) => {
     this.lineChart(peso)
   }
 
@@ -62,7 +70,7 @@ export class ApiarioComponent implements OnInit {
     //   this.http['get'](this.configs.api + '/colmeias/get-infos?col_id=1').subscribe(
     //     data => {
     //       // this.router.navigate(['/'+ this.pathRoute])
-          
+
     //       this.colmeias = [
     //         data
     //       ]
@@ -70,7 +78,7 @@ export class ApiarioComponent implements OnInit {
     //     },
     //     err => {
     //       console.log(err);
-  
+
     //       console.log("Error occured.")
     //     }
     //   );
@@ -115,37 +123,16 @@ export class ApiarioComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    // Loadgo.init(document.getElementById('logo'));
+  
+    setTimeout(() => {
 
-    window.onload = (event) => {
-      // debugger;
-      console.log(this.gray.nativeElement.margin);
       var element = this.gray.nativeElement
-      // // var _element = this.color.nativeElement.style
       var style = element.currentStyle || window.getComputedStyle(element)
-      // var _margin = style.margin.split(" ")[1].split('px')[0];    
-      // console.log(style);
-      // console.log(style['margin']);
-      // var x = Object.assign(style, {});
-      // console.log(x[0]);
-      // console.log(x.margin);
-      // console.log(x.marginTop);
-      // console.log(x.marginBottom);    
-      // console.log(document.getElementsByClassName('copy'));
-      // var y = document.gets('copy')[0]
-      // console.log(y.style);
-      console.log(style);
-      
       this.customMargin = style.marginTop + ' 0px';
-      // this.showImage = true
 
-      // setTimeout(() => {
-      //   this.showImage = true
-      // }, 200);
-    };
-    
-    //Copy in all the jBottoms code from the script.js. Typescript will complain but it works just fine
- }
+    }, 500);
+
+  }
 
   private lineChart(peso) {
 
@@ -178,9 +165,9 @@ export class ApiarioComponent implements OnInit {
       values.push(value)
     });
 
-    if(this._line) {
+    if (this._line) {
       console.log(this._line);
-      
+
       this._line.destroy()
     }
 

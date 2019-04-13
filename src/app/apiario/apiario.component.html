@@ -7,14 +7,14 @@
           <!-- <div class="pot"></div>           -->
           <div class="position-relative d-flex">
             <img #gray src="/assets/img/honey-jar.png" class="img-fluid m-auto gray-image" alt="">
-            <img [ngStyle]="{'margin': customMargin,'clip-path': 'inset(' +(100-colmeia.percent)+'%' + ' 0 0 0)'}" *ngIf="colmeia && colmeia.percent && customMargin"
+            <img [ngStyle]="{'margin': customMargin,'clip-path': 'inset(' +(100-colmeia.percent)+'%' + ' 0 0 0)'}" *ngIf="customMargin"
               src="/assets/img/honey-jar.png" class="img-fluid copy" alt="">
           </div>
         </div>
         <div class="col-5 variables py-4">
           <div class="variable-content d-flex">
             <div class="variable-title">Preenchido</div>
-            <div class="variable-value">{{colmeia.percent}}%</div>
+            <div *ngIf="colmeia && colmeia.percent" class="variable-value">{{colmeia.percent}}%</div>
           </div>
           <!-- <div class="variable-content d-flex">
             <div class="variable-title">Peso</div>
@@ -70,7 +70,7 @@
               <!-- <canvas id="line-chart"></canvas> -->
               <div class="rt-title">ACOMPANHAMENTO DA COLMÉIA</div>
               <div class="rt-body">
-                <div class="rt-container">
+                <div *ngIf="colmeia && colmeia.percent" class="rt-container">
                   <div class="primary">
                     <div class="label">Porcentagem da colméia preenchida</div>
                     <div class="value">{{colmeia.percent}}<span class="detail">%</span></div>
