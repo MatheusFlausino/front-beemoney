@@ -66,23 +66,23 @@ export class ApiarioComponent implements OnInit {
     this.route.params.subscribe(params => this.params = params);
 
 
-    // setInterval(() => {
-    //   this.http['get'](this.configs.api + '/colmeias/get-infos?col_id=1').subscribe(
-    //     data => {
-    //       // this.router.navigate(['/'+ this.pathRoute])
+    setInterval(() => {
+      this.http['get'](this.configs.api + '/colmeias/get-infos?col_id=1').subscribe(
+        data => {
+          // this.router.navigate(['/'+ this.pathRoute])
 
-    //       this.colmeias = [
-    //         data
-    //       ]
-    //       this.colmeia = data
-    //     },
-    //     err => {
-    //       console.log(err);
+          this.colmeias = [
+            data
+          ]
+          this.colmeia = data
+        },
+        err => {
+          console.log(err);
 
-    //       console.log("Error occured.")
-    //     }
-    //   );
-    // }, 5000);
+          console.log("Error occured.")
+        }
+      );
+    }, 5000);
     // location.reload();
     // if (this.params && this.params.id) {
     //   if (this.params.id == 1) {

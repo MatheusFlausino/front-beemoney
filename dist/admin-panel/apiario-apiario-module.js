@@ -91,21 +91,18 @@ var ApiarioComponent = /** @class */ (function () {
         var _this = this;
         // /api/colmeias/get-infos?col_id=1
         this.route.params.subscribe(function (params) { return _this.params = params; });
-        // setInterval(() => {
-        //   this.http['get'](this.configs.api + '/colmeias/get-infos?col_id=1').subscribe(
-        //     data => {
-        //       // this.router.navigate(['/'+ this.pathRoute])
-        //       this.colmeias = [
-        //         data
-        //       ]
-        //       this.colmeia = data
-        //     },
-        //     err => {
-        //       console.log(err);
-        //       console.log("Error occured.")
-        //     }
-        //   );
-        // }, 5000);
+        setInterval(function () {
+            _this.http['get'](_this.configs.api + '/colmeias/get-infos?col_id=1').subscribe(function (data) {
+                // this.router.navigate(['/'+ this.pathRoute])
+                _this.colmeias = [
+                    data
+                ];
+                _this.colmeia = data;
+            }, function (err) {
+                console.log(err);
+                console.log("Error occured.");
+            });
+        }, 5000);
         // location.reload();
         // if (this.params && this.params.id) {
         //   if (this.params.id == 1) {
