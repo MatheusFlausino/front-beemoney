@@ -126,9 +126,9 @@ export class ApiarioComponent implements OnInit {
   
     setTimeout(() => {
 
-      var element = this.gray.nativeElement
-      var style = element.currentStyle || window.getComputedStyle(element)
-      this.customMargin = style.marginTop + ' 0px';
+      // var element = this.gray.nativeElement
+      // var style = element.currentStyle || window.getComputedStyle(element)
+      // this.customMargin = style.marginTop + ' 0px';
 
     }, 500);
 
