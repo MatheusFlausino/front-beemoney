@@ -36,7 +36,7 @@
     "datatables.net-responsive-bs4": "^2.2.3",
     "flatpickr": "^4.5.1",
     "fullcalendar": "^3.9.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "moment": "^2.9.0",
     "ng2-flatpickr": "^6.0.2",
     "ngx-chips": "^1.9.1",
